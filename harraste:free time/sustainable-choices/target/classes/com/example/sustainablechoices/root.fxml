@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="340.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.example.sustainablechoices.controller.ChoicesController">
+  <tabs>
+    <Tab text="Vastuullisuus kysely">
+      <content>
+        <AnchorPane fx:id="questionnairePane" prefHeight="540.0" prefWidth="340.0" />
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
