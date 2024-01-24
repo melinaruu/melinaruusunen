@@ -1,0 +1,472 @@
+:root {
+  --logo-file: url(./vue.svg);
+  --vue-animation: logo-float 2s ease-in-out infinite;
+  --react-animation: logo-spin 20s linear infinite;
+  --animation: var(--vue-animation);
+
+  --color-standard-white: white;
+  --color-standard-white-soft: #f8f8f8;
+  --color-standard-white-mute: #f2f2f2;
+
+  --color-standard-grey: #636363;
+
+  --color-standard-black: #181818;
+  --color-standard-black-soft: #222222;
+  --color-standard-black-mute: #282828;
+
+  --color-standard-basic: #42b883;
+  --color-standard-light: #42d392;
+  --color-standard-lighter: #35eb9a;
+  --color-standard-dark: #33a06f;
+  --color-standard-darker: #155f3e;
+
+  --color-special-basic: #ffc517;
+  --color-special-light: #fcd253;
+  --color-special-lighter: #fcfc7c;
+  --color-special-dark: #e0ad15;
+  --color-special-darker: #ad850e;
+  --color-special-dimm-1: rgba(255, 197, 23, 0.5);
+
+  --color-divider-light-1: rgba(60, 60, 60, 0.29);
+  --color-divider-light-2: rgba(60, 60, 60, 0.12);
+  --color-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --color-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --color-text-light-1: #2c3e50;
+  --color-text-light-2: rgba(60, 60, 60, 0.66);
+  --color-text-light-3: rgba(60, 60, 60, 0.207);
+  --color-text-dark-1: var(--color-standard-white);
+  --color-text-dark-2: rgba(235, 235, 235, 0.64);
+  --color-text-dark-3: rgba(235, 235, 235, 0.207);
+
+  --size-bezel: 0.5rem;
+  --size-radius: 4px;
+  --main-margin: 5px;
+  line-height: 1.4;
+
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: calc(0.6rem + 0.4vw);
+  color: var(--color-text);
+  font-weight: 300;
+  padding: 0 calc(var(--size-bezel) * 3);
+}
+
+/* semantic color variables for this project */
+:root {
+  /* --color-background: var(--color-standard-white); */
+  --color-background: var(--color-standard-white);
+  --color-background-soft: var(--color-standard-white-soft);
+  --color-background-mute: var(--color-standard-white-mute);
+
+  --color-border: var(--color-divider-light-2);
+  --color-border-hover: var(--color-divider-light-1);
+
+  --color-heading: var(--color-text-light-1);
+  --color-text: var(--color-text-light-1);
+  --color-text-mute: var(--color-text-light-2);
+  --color-accent: var(--color-text-light-2);
+
+  --color-button-add: var(--color-standard-light);
+  --color-button-add-hover: var(--color-standard-lighter);
+
+  --color-text-button-delete: var(--color-text-light-1);
+  --color-button-delete: var(--color-warning-light);
+  --color-button-delete-hover: var(--color-warning-lighter);
+
+  --color-checkmark: var(--color-background-mute);
+  --color-checkmark-checked-bg: var(--color-standard-dark);
+  --color-checkmark-checked-sign: var(--color-standard-white);
+  --color-checkmark-hover-bg: var(--color-standard-grey);
+  --color-checkmark-unchecked-bg: var(--color-standard-white);
+
+  --color-button-update: var(--color-button-add);
+  --color-button-update-hover: var(--color-button-add-hover);
+  --color-text-button-update: var(--color-text-button-add);
+  --color-button-update-inactive: var(--color-standard-grey);
+  --color-text-button-update-inactive: var(--color-text-light-1);
+
+  /* --section-gap: 160px; */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-standard-black);
+    --color-background-soft: var(--color-standard-black-soft);
+    --color-background-mute: var(--color-standard-black-mute);
+
+    --color-border: var(--color-divider-dark-2);
+    --color-border-hover: var(--color-divider-dark-1);
+
+    --color-heading: var(--color-text-dark-1);
+    --color-text: var(--color-text-dark-2);
+    --color-text-mute: var(--color-text-dark-3);
+    --color-accent: var(--color-text-dark-2);
+
+    --color-text-button-add: var(--color-text-dark-1);
+    --color-button-add: var(--color-standard-dark);
+    --color-button-add-hover: var(--color-standard-darker);
+
+    --color-text-button-delete: var(--color-text-dark-1);
+    --color-button-delete: var(--color-warning);
+    --color-button-delete-hover: var(--color-warning-darker);
+  }
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* font-size: large; */
+  color: var(--color-heading);
+}
+
+.img-inline::before {
+  content: "";
+  background-image: var(--logo-file);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  width: 70px;
+  height: 50px;
+  display: block;
+}
+
+#exerciseNumber {
+  color: var(--color-standard-basic);
+  font-weight: 1000;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#submit-player {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#input-player {
+  flex-grow: 1;
+  padding: 0.5em;
+  font-size: 1em;
+  margin-bottom: 10px;
+  border-radius: 0.25em;
+  color: var(--color-text-mute);
+  background-color: var(--color-background-mute);
+  border: 1px solid var(--color-background);
+}
+
+#input-player-label {
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+#input-player:focus {
+  border: 1px solid var(--color-background-mute);
+  outline: none;
+}
+
+.btn-add {
+  padding: 0.5em 1em;
+  border: none;
+  width: fit-content;
+  border-radius: 0.25em;
+  background-color: var(--color-button-add);
+  color: var(--color-text-button-add);
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: var(--color-button-add-hover);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Create styles for the form */
+#auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+#auth-form input {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+  margin-bottom: 10px;
+  border-radius: 0.25em;
+  background-color: var(--color-background-mute);
+  border: 1px solid var(--color-background);
+  color: var(--color-text);
+}
+
+#auth-form input:focus {
+  border-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  outline: none;
+}
+
+.btn-auth {
+  padding: 0.5em 1em;
+  border: none;
+  width: fit-content;
+  border-radius: 0.25em;
+  background-color: var(--color-button-add);
+  color: var(--color-text-button-add);
+  cursor: pointer;
+}
+
+#auth-form button:hover {
+  background-color: var(--color-button-add-hover);
+}
+
+li {
+  background-color: var(--color-background-mute);
+  margin: 5px;
+  display: flex;
+  width: 100%;
+}
+a {
+  border: 2px solid var(--color-background-mute);
+  padding: 15px;
+  font-size: 1.2rem;
+  display: blox;
+  text-decoration: none;
+  color: var(--color-standard-dark);
+  flex: 1 1 0;
+  transition: 0.4s;
+}
+
+a:hover {
+  background-color: var(--color-background-soft);
+  border: 2px solid;
+}
+
+#players-list {
+  list-style: none;
+  margin: var(--main-margin);
+  padding: 20px;
+  background-color: var(--color-background-soft);
+}
+
+#request-status {
+  content: " ";
+  margin: var(--main-margin);
+  padding: 20px;
+  /* height: 40px; */
+  background-color: var(--color-background-soft);
+  border: 2px solid var(--color-background-mute);
+}
+
+#selected-player {
+  margin: var(--main-margin);
+  padding: 20px;
+  background-color: var(--color-background-soft);
+  border: 2px solid var(--color-background-mute);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-delete {
+  background-color: var(--color-button-delete);
+  color: var(--color-text-button-delete);
+  border: none;
+  border-radius: 0.25em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background-color: var(--color-button-delete-hover);
+}
+
+label {
+  display: block;
+  position: relative;
+  padding-right: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-right: 35px;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 10;
+  left: 100%;
+  height: 25px;
+  width: 25px;
+  background-color: var(--color-checkmark);
+}
+
+/* On mouse-over */
+label:hover input ~ .checkmark {
+  background-color: var(--color-checkmark-hover-bg);
+}
+
+/* When the checkbox is checked*/
+label input:checked ~ .checkmark {
+  background-color: var(--color-standard-dark);
+}
+/* When the user hovers mouse over a checked checkbox */
+label:hover input:checked ~ .checkmark {
+  background-color: var(--color-checkmark-hover-bg);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+label .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--color-checkmark-checked-sign);
+  border-width: 0 2px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#btn-logout {
+  background-color: var(--color-button-update);
+  color: var(--color-text-button-update);
+  border: none;
+  border-radius: 0.25em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+#btn-logout:hover {
+  background-color: var(--color-button-update-hover);
+}
+
+.btn-update {
+  background-color: var(--color-button-update);
+  color: var(--color-text-button-update);
+  border: none;
+  border-radius: 0.25em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.btn-update:hover {
+  background-color: var(--color-button-update-hover);
+}
+
+/* btn-update when inactive */
+.btn-update:disabled {
+  background-color: var(--color-button-update-inactive);
+  color: var(--color-text-button-update-inactive);
+  cursor: not-allowed;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  will-change: filter;
+  flex: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  /* make animations smooth */
+}
+
+.logo:hover {
+  background-color: rgba(0, 0, 255, 0);
+  animation-play-state: paused;
+  border: none;
+  filter: drop-shadow(0 0 1em #61dafbaa);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: var(--animation);
+  }
+}
